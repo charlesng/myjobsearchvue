@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import App from './App.vue';
+import Baseline from './components/baseline.vue';
 import vuetify from './plugins/vuetify';
 
 Vue.config.productionTip = false;
