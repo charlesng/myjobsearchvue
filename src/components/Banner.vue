@@ -1,0 +1,40 @@
+<template>
+  <v-card>
+    <v-img
+      class="black--text align-end"
+      src="../assets/city.jpg"
+      max-height="300"
+      contain
+      position="bottom left"
+    >
+      <div class="display-1 font-weight-bold">
+        My Job Search
+      </div>
+      <div class="subtitle-2">
+        14000 jobs posted in 2019
+      </div>
+      <v-container>
+        <v-row align="center">
+          <v-col cols="10"
+            ><v-text-field
+              prepend-inner-icon="mdi-magnify"
+              label="Search"
+              placeholder="Search your dream job"
+              hide-details
+              solo
+          /></v-col>
+          <v-col cols="2"><v-btn color="primary">Advance Filter</v-btn></v-col>
+        </v-row>
+      </v-container>
+    </v-img>
+  </v-card>
+</template>
+
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
+  name: 'Banner',
+  data: () => ({}),
+});
+</script>

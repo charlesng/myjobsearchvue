@@ -7,7 +7,7 @@
             <v-col :cols="12" align="center">
               <img src="../assets/workfinder.png" alt="company_icon" witdh="150" height="150" />
             </v-col>
-            <v-divider class="mx-4" :inset="inset"></v-divider>
+            <v-divider class="mx-4"></v-divider>
             <v-col :cols="12">
               <v-list dense v-for="(menu, i) in menus" :key="i" max-height="40">
                 <v-list-item link>
@@ -54,20 +54,19 @@
         </v-container>
       </div>
     </v-navigation-drawer>
+    <div class="hidden-lg-and-up">
+      <v-app-bar app color="indigo" dark>
+        <v-avatar @click.stop="drawer = !drawer" size="40">
+          <img src="../assets/workfinder.png" alt="drawer" />
+        </v-avatar>
+        <v-toolbar-title>Work Finder</v-toolbar-title>
+      </v-app-bar>
+    </div>
 
-    <v-app-bar app color="indigo" dark class="hidden-lg-and-up">
-      <v-avatar @click.stop="drawer = !drawer" size="40">
-        <img src="../assets/workfinder.png" alt="drawer" />
-      </v-avatar>
-      <v-toolbar-title>Work Finder</v-toolbar-title>
-    </v-app-bar>
-
-    <v-content>
-      <v-container class="fill-height" fluid>
-        <v-row align="center" justify="center">
-          <v-col class="text-center"> </v-col>
-        </v-row>
-      </v-container>
+    <v-content class="d-flex align-start pt-0 fill-width">
+      <v-col class="text-center">
+        <Banner />
+      </v-col>
     </v-content>
   </v-app>
 </template>
@@ -78,7 +77,13 @@
 </style>
 
 <script lang="ts">
+import Banner from './Banner.vue';
+
 export default {
+  name: 'ResponsiveDrawer',
+  components: {
+    Banner,
+  },
   props: {
     source: String,
   },
