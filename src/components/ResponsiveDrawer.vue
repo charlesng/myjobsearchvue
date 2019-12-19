@@ -66,6 +66,7 @@
     <v-content class="d-flex align-start pt-0 fill-width">
       <v-col class="text-center">
         <Banner />
+        <JobTable class="mt-4" />
       </v-col>
     </v-content>
   </v-app>
@@ -78,11 +79,13 @@
 
 <script lang="ts">
 import Banner from './Banner.vue';
+import JobTable from './JobTable.vue';
 
 export default {
   name: 'ResponsiveDrawer',
   components: {
     Banner,
+    JobTable,
   },
   props: {
     source: String,
