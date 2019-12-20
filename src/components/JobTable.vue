@@ -14,7 +14,7 @@ import Component from 'vue-class-component';
 import { Prop } from 'vue-property-decorator';
 import Job from '../model/Job';
 import JobTableItem from './JobTableItem.vue';
-import ApiService from '../service/ApiService';
+import JobService from '../service/JobService';
 import AxiosJobService from '../service/AxiosJobService';
 
 type JobTablePropos = { jobs: Job[] };
@@ -29,7 +29,7 @@ export default class JobTable extends Vue {
   @Prop({ default: '' as String })
   private info!: Object;
 
-  private apiService: AxiosJobService = new AxiosJobService();
+  private apiService: JobService = new AxiosJobService();
 
   async mounted() {
     this.jobs = await this.apiService.getAllJobs();

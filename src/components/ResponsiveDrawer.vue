@@ -78,20 +78,20 @@
 </style>
 
 <script lang="ts">
+import Vue from 'vue';
+import { Prop, Component } from 'vue-property-decorator';
 import Banner from './Banner.vue';
 import JobTable from './JobTable.vue';
 
-export default {
-  name: 'ResponsiveDrawer',
+@Component({
   components: {
     Banner,
     JobTable,
   },
-  props: {
-    source: String,
-  },
-  data: () => ({
-    menus: [
+})
+export default class ResponsiveDrawer extends Vue {
+  @Prop({
+    default: [
       { title: 'Home', icon: 'mdi-home' },
       { title: 'Search Jobs', icon: 'mdi-magnify' },
       { title: 'Favourite Companies' },
@@ -101,7 +101,10 @@ export default {
       { title: 'Post Job', icon: 'mdi-plus' },
       { title: 'Report Us', icon: 'mdi-alert-octagon' },
     ],
-    drawer: null,
-  }),
-};
+  })
+  private menus!: any[];
+
+  @Prop()
+  private drawer!: any;
+}
 </script>

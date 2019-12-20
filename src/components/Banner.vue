@@ -32,9 +32,8 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import { Component } from 'vue-property-decorator';
 
-export default Vue.extend({
-  name: 'Banner',
-  data: () => ({}),
-});
+@Component({})
+export default class Banner extends Vue {}
 </script>
