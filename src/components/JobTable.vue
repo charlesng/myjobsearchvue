@@ -3,45 +3,36 @@
     <!-- Add Header -->
     <JobTableItem v-for="job in jobs" v-bind:key="job.title" v-bind:job="job" />
     <!-- Add Footer -->
+    {{ info }}
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
+import axios, { AxiosResponse } from 'axios';
+import Component from 'vue-class-component';
+import { Prop } from 'vue-property-decorator';
 import Job from '../model/Job';
 import JobTableItem from './JobTableItem.vue';
+import ApiService from '../service/ApiService';
+import AxiosJobService from '../service/AxiosJobService';
 
 type JobTablePropos = { jobs: Job[] };
 
-export default Vue.extend({
-  name: 'JobTable',
-  components: {
-    JobTableItem,
-  },
+@Component({
+  components: { JobTableItem },
+})
+export default class JobTable extends Vue {
+  @Prop({ default: [] as Job[] })
+  private jobs!: Job[];
 
-  data() {
-    return {
-      jobs: [
-        {
-          title: 'Software Engineer',
-          company_name: 'Google Inc.',
-          location: 'USA',
-          description: 'default description',
-          img_src: 'https://avatars0.githubusercontent.com/u/1342004?s=400&v=4',
-          salary: ' 210k',
-          salary_period: 'Yearly',
-        },
-        {
-          title: 'Software Engineer2',
-          company_name: 'Google Inc.',
-          location: 'USA',
-          description: 'default description',
-          img_src: 'https://avatars0.githubusercontent.com/u/1342004?s=400&v=4',
-          salary: ' 210k',
-          salary_period: 'Yearly',
-        },
-      ],
-    } as JobTablePropos;
-  },
-});
+  @Prop({ default: '' as String })
+  private info!: Object;
+
+  private apiService: AxiosJobService = new AxiosJobService();
+
+  async mounted() {
+    this.jobs = await this.apiService.getAllJobs();
+  }
+}
 </script>
