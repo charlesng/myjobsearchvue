@@ -3,19 +3,19 @@
     <v-img
       class="black--text align-end"
       src="../assets/city.jpg"
-      max-height="300"
+      height="300"
       contain
       position="bottom left"
     >
       <div class="display-1 font-weight-bold">
         My Job Search
       </div>
-      <div class="subtitle-2">
+      <div class="subtitle-2 font-weight-light">
         14000 jobs posted in 2019
       </div>
       <v-container>
         <v-row align="center">
-          <v-col cols="10"
+          <v-col cols="12" md="10"
             ><v-text-field
               prepend-inner-icon="mdi-magnify"
               label="Search"
@@ -23,17 +23,16 @@
               hide-details
               solo
           /></v-col>
-          <v-col cols="2"><v-btn color="primary">Advance Filter</v-btn></v-col>
+          <v-col cols="12" md="2"><v-btn color="primary">Advance Filter</v-btn></v-col>
         </v-row>
       </v-container>
     </v-img>
   </v-card>
 </template>
-
 <script lang="ts">
 import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 
 @Component({})
-export default class Banner extends Vue {}
+export default class JobBanner extends Vue {}
 </script>

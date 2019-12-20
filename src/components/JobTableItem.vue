@@ -2,22 +2,22 @@
   <v-card class="pa-1 mb-4">
     <v-container>
       <v-row class="text-left">
-        <v-col cols="1" class="d-flex align-center justify-center">
+        <v-col md="1" sm="3" cols="3" class="d-flex align-center justify-center">
           <v-avatar size="50" color="#EBEBEB" tile>
             <img :src="job.img_src" alt="avatar" />
           </v-avatar>
         </v-col>
-        <v-col cols="5">
+        <v-col md="5" sm="9" cols="9" class="pa-4">
           <div class="subtitle-1 font-weight-bold">{{ job.title }}</div>
-          <div class="subtitle-2 grey--text">{{ job.company_name }}</div>
+          <div class="subtitle-2 grey--text font-weight-regular">{{ job.company_name }}</div>
         </v-col>
-        <v-col cols="4">
+        <v-col md="4" sm="6" cols="12" class="pa-4">
           <div class="subtitle-1 font-weight-bold">{{ job.location }}</div>
-          <div class="subtitle-2 grey--text">Location</div>
+          <div class="subtitle-2 grey--text font-weight-regular">Location</div>
         </v-col>
-        <v-col cols="2">
+        <v-col md="2" sm="6" cols="12" class="pa-4">
           <div class="subtitle-1 font-weight-bold">{{ job.salary }}</div>
-          <div class="subtitle-2 grey--text">{{ job.salary_period }}</div>
+          <div class="subtitle-2 grey--text font-weight-regular">{{ job.salary_period }}</div>
         </v-col>
       </v-row>
     </v-container>

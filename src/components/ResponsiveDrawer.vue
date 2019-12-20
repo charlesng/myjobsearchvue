@@ -1,6 +1,6 @@
 <template>
   <v-app id="inspire">
-    <v-navigation-drawer v-model="drawer" app width="300">
+    <v-navigation-drawer v-model="drawer" app width="300" mobile-break-point="md">
       <div class="pl-7 pr-7 d-flex  align-content-space-between flex-wrap fill-height">
         <v-container>
           <v-row>
@@ -54,7 +54,7 @@
         </v-container>
       </div>
     </v-navigation-drawer>
-    <div class="hidden-lg-and-up">
+    <div class="hidden-sm-and-up">
       <v-app-bar app color="indigo" dark>
         <v-avatar @click.stop="drawer = !drawer" size="40">
           <img src="../assets/workfinder.png" alt="drawer" />
@@ -63,9 +63,9 @@
       </v-app-bar>
     </div>
 
-    <v-content class="d-flex align-start pt-0 fill-width">
+    <v-content class="d-flex align-start pt-sm-0 ma-3">
       <v-col class="text-center">
-        <Banner />
+        <JobBanner />
         <JobTable class="mt-4" />
       </v-col>
     </v-content>
@@ -80,12 +80,12 @@
 <script lang="ts">
 import Vue from 'vue';
 import { Prop, Component } from 'vue-property-decorator';
-import Banner from './Banner.vue';
+import JobBanner from './JobBanner.vue';
 import JobTable from './JobTable.vue';
 
 @Component({
   components: {
-    Banner,
+    JobBanner,
     JobTable,
   },
 })
