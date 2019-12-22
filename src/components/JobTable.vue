@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Add Header -->
-    <JobTableItem v-for="job in jobs" v-bind:key="job.title" v-bind:job="job" />
+    <JobTableItem v-for="job in jobs" :key="job.title" :job="job" />
     <!-- Add Footer -->
   </div>
 </template>
