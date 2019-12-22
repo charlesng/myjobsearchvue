@@ -1,6 +1,6 @@
 <template>
   <v-app id="inspire">
-    <v-navigation-drawer v-model="drawer" app width="300" mobile-break-point="md">
+    <v-navigation-drawer v-model="isDrawerOpen" app width="300">
       <div class="pl-7 pr-7 d-flex  align-content-space-between flex-wrap fill-height">
         <v-container>
           <v-row>
@@ -15,9 +15,9 @@
                     <v-icon>{{ menu.icon }}</v-icon>
                   </v-list-item-action>
                   <v-list-item-content>
-                    <v-list-item-title class="font-weight-light">{{
-                      menu.title
-                    }}</v-list-item-title>
+                    <v-list-item-title class="font-weight-light">
+                      {{ menu.title }}
+                    </v-list-item-title>
                   </v-list-item-content>
                 </v-list-item>
               </v-list>
@@ -41,7 +41,7 @@
               <v-card color="#F9FAFA">
                 <v-list-item two-line>
                   <v-list-item-avatar>
-                    <img src="../assets/someone.jpg" alt="drawer"
+                    <img src="../assets/someone.jpg" alt="designerProfileImg"
                   /></v-list-item-avatar>
                   <v-list-item-content>
                     <v-list-item-title>Matt Frost</v-list-item-title>
@@ -54,16 +54,16 @@
         </v-container>
       </div>
     </v-navigation-drawer>
-    <div class="hidden-sm-and-up">
+    <div class="hidden-lg-and-up">
       <v-app-bar app color="indigo" dark>
-        <v-avatar @click.stop="drawer = !drawer" size="40">
-          <img src="../assets/workfinder.png" alt="drawer" />
+        <v-avatar @click.stop="toggleDrawer()" size="40">
+          <img src="../assets/workfinder.png" alt="drawerIcon" />
         </v-avatar>
-        <v-toolbar-title>Work Finder</v-toolbar-title>
+        <v-toolbar-title class="ml-2">Work Finder</v-toolbar-title>
       </v-app-bar>
     </div>
 
-    <v-content class="d-flex align-start pt-sm-0 ma-3">
+    <v-content class="d-flex align-start pt-md-0 ma-3 full-width">
       <v-col class="text-center">
         <JobBanner />
         <JobTable class="mt-4" />
@@ -83,6 +83,8 @@ import { Prop, Component } from 'vue-property-decorator';
 import JobBanner from './JobBanner.vue';
 import JobTable from './JobTable.vue';
 
+type TheDrawerMenuItem = { title: String; icon: String };
+
 @Component({
   components: {
     JobBanner,
@@ -91,7 +93,7 @@ import JobTable from './JobTable.vue';
 })
 export default class ResponsiveDrawer extends Vue {
   @Prop({
-    default: [
+    default: () => [
       { title: 'Home', icon: 'mdi-home' },
       { title: 'Search Jobs', icon: 'mdi-magnify' },
       { title: 'Favourite Companies' },
@@ -102,9 +104,12 @@ export default class ResponsiveDrawer extends Vue {
       { title: 'Report Us', icon: 'mdi-alert-octagon' },
     ],
   })
-  private menus!: any[];
+  private menus!: TheDrawerMenuItem[];
 
-  @Prop()
-  private drawer!: any;
+  private isDrawerOpen: any = null;
+
+  toggleDrawer() {
+    this.isDrawerOpen = !this.isDrawerOpen;
+  }
 }
 </script>

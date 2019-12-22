@@ -15,7 +15,7 @@
       </div>
       <v-container>
         <v-row align="center">
-          <v-col cols="12" md="10"
+          <v-col cols="12" md="9" sm="8"
             ><v-text-field
               prepend-inner-icon="mdi-magnify"
               label="Search"
@@ -23,7 +23,9 @@
               hide-details
               solo
           /></v-col>
-          <v-col cols="12" md="2"><v-btn color="primary">Advance Filter</v-btn></v-col>
+          <v-col cols="12" md="3" sm="4" class="text-left text-sm-center"
+            ><v-btn color="primary">Advance Filter</v-btn></v-col
+          >
         </v-row>
       </v-container>
     </v-img>
